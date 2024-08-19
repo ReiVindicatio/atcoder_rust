@@ -1,1 +1,1 @@
-/home/masatosaito/atcoder_rust/contest/atcoder/target/debug/abc364-g: /home/masatosaito/atcoder_rust/contest/atcoder/abc364/src/bin/g.rs
+/Users/MasatoSaito/competitive_programming/atcoder_rust/contest/atcoder/target/debug/abc364-g: /Users/MasatoSaito/competitive_programming/atcoder_rust/contest/atcoder/abc364/src/bin/g.rs
