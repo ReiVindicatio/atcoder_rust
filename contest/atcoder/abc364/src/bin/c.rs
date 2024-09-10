@@ -2,16 +2,31 @@ use proconio::input;
 
 fn main() {
     input! {
-        n: usize,
-        mut plan: [(i32, i32, i32); n],  // Vec<(i32, i32, i32)>
+        n: usize, x: i64, y: i64,
+        a: [i64; n], b: [i64; n],
     }
-    plan.insert(0, (0, 0, 0));
-    let yes = plan.windows(2).all(|w| {
-        let (t0, x0, y0) = w[0];
-        let (t1, x1, y1) = w[1];
-        let time = t1 - t0;
-        let dist = (x1 - x0).abs() + (y1 - y0).abs();
-        dist <= time && time % 2 == dist % 2
-    });
-    println!("{}", if yes { "Yes" } else { "No" });
+    let mut ab: Vec<(_, _)> = a.into_iter().zip(b.into_iter()).collect();
+    let mut ans = n+10;
+    ab.sort_by(|a, b| a.0.cmp(&b.0).reverse());
+    let mut sum: i64 = 0;
+    let mut count = 0;
+    for &(a, _) in &ab {
+        sum += a;
+        count += 1;
+        if sum > x {
+            break;
+        }
+    }
+    ans = ans.min(count);
+    count = 0;
+    sum = 0;
+    ab.sort_by(|a, b| a.1.cmp(&b.1).reverse());
+    for &(_, b) in &ab {
+        sum += b;
+        count += 1;
+        if sum > y {
+            break;
+        }
+    }
+    println!("{}", ans.min(count));
 }
