@@ -6,7 +6,9 @@ fn main() {
     }
     if a == b {
         println!("1");
-        return;
+    } else if (a.max(b) - a.min(b))%2 == 0 {
+        println!("3");
+    } else {
+        println!("2");
     }
-    println!("{}", 2 + if (a-b).abs()%2 == 0 { 1 } else { 0 });
 }

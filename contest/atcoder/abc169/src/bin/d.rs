@@ -13,4 +13,5 @@ fn main() {
         let dist = (x1 - x0).abs() + (y1 - y0).abs();
         dist <= time && time % 2 == dist % 2
     });
+    println!("{}", if yes { "Yes" } else { "No" });
 }
